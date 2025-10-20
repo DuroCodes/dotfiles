@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+
+sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
+sketchybar --add event aerospace_workspace_change
+
+source $ITEM_DIR/aerospace.sh
+
+default=(
+  padding_left=4
+  padding_right=4
+  icon.font="CaskaydiaCove Nerd Font Mono:Regular:20.0"
+  label.font="CaskaydiaCove Nerd Font Mono:Regular:14.0"
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+)
+
+sketchybar --default "${default[@]}"
+
+sketchybar --add item clock right \
+  --set clock update_freq=10 icon= script="$PLUGIN_DIR/clock.sh" \
+  --add item volume right \
+  --set volume script="$PLUGIN_DIR/volume.sh" \
+  --subscribe volume volume_change \
+  --add item battery right \
+  --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
+source $ITEM_DIR/front_app.sh
+source $ITEM_DIR/spotify.sh
+
+sketchybar --hotload on
+sketchybar --update

@@ -1,0 +1,11 @@
+*
+
+!*/
+!.gitignore
+!aerospace/**
+!wezterm/**
+!sketchybar/**
+!image.png
+!/README.md
+
+.DS_Store

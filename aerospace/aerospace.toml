@@ -1,0 +1,245 @@
+# Place a copy of this config to ~/.aerospace.toml
+# After that, you can edit ~/.aerospace.toml to your liking
+
+# It's not necessary to copy all keys to your config.
+# If the key is missing in your config, "default-config.toml" will serve as a fallback
+
+# You can use it to add commands that run after login to macOS user session.
+# 'start-at-login' needs to be 'true' for 'after-login-command' to work
+# Available commands: https://nikitabobko.github.io/AeroSpace/commands
+after-login-command = []
+
+# You can use it to add commands that run after AeroSpace startup.
+# 'after-startup-command' is run after 'after-login-command'
+# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+after-startup-command = [
+  'exec-and-forget sketchybar',
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=1.0',
+]
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+]
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+# The 'accordion-padding' specifies the size of accordion padding
+# You can set 0 to disable the padding feature
+accordion-padding = 30
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Possible values: (qwerty|dvorak)
+# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
+key-mapping.preset = 'qwerty'
+
+# Mouse follows focus when focused monitor changes
+# Drop it from your config, if you don't like this behavior
+# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
+# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
+on-focus-changed = "move-mouse window-lazy-center"
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+# Possible values:
+# - Constant:     gaps.outer.top = 8
+# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
+#                 In this example, 24 is a default value when there is no match.
+#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
+#                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[gaps]
+inner.horizontal = 6
+inner.vertical = 6
+outer.bottom = 6
+outer.left = 6
+outer.right = 6
+outer.top = 15
+
+# 'main' binding mode declaration
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# 'main' binding mode must be always presented
+[mode.main.binding]
+
+# All possible keys:
+# - Letters.        a, b, c, ..., z
+# - Numbers.        0, 1, 2, ..., 9
+# - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
+# - F-keys.         f1, f2, ..., f20
+# - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon, backtick,
+#                   leftSquareBracket, rightSquareBracket, space, enter, esc, backspace, tab
+# - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
+#                   keypadMinus, keypadMultiply, keypadPlus
+# - Arrows.         left, down, up, right
+
+# All possible modifiers: cmd, alt, ctrl, shift
+
+# All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+
+# You can uncomment this line to open up terminal with alt + enter shortcut
+# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
+# alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#layout
+# alt-comma = 'layout accordion horizontal vertical'
+# alt-slash = 'layout tiles horizontal vertical'
+
+alt-ctrl-down = 'focus down'
+alt-ctrl-left = 'focus left'
+alt-ctrl-right = 'focus right'
+alt-ctrl-up = 'focus up'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move
+alt-cmd-down = 'move down'
+alt-cmd-left = 'move left'
+alt-cmd-right = 'move right'
+alt-cmd-up = 'move up'
+
+alt-cmd-b = 'balance-sizes'
+alt-cmd-equal = 'resize smart +50'
+alt-cmd-minus = 'resize smart -50'
+
+# shortcuts to open apps
+ctrl-alt-cmd-t = 'exec-and-forget open -n /Applications/WezTerm.app'
+
+alt-shift-ctrl-cmd-down = 'join-with down'
+alt-shift-ctrl-cmd-left = 'join-with left'
+alt-shift-ctrl-cmd-right = 'join-with right'
+alt-shift-ctrl-cmd-up = 'join-with up'
+
+alt-shift-ctrl-cmd-r = 'exec-and-forget /opt/homebrew/bin/sketchybar --reload && aerospace reload-config'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+
+alt-shift-ctrl-1 = 'move-node-to-monitor 1'
+alt-shift-ctrl-2 = 'move-node-to-monitor 2'
+
+ctrl-alt-cmd-f = 'fullscreen'
+ctrl-alt-cmd-shift-f = 'layout floating tiling'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+alt-tab = 'workspace-back-and-forth'
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+alt-shift-semicolon = 'mode service'
+
+alt-shift-r = 'mode resize'
+
+[mode.resize.binding]
+b = 'balance-sizes'
+down = 'resize height -50'
+left = 'resize width -50'
+right = 'resize width +50'
+up = 'resize height +50'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#resize
+equal = 'resize smart +50'
+minus = 'resize smart -50'
+
+enter = 'mode main'
+esc = 'mode main'
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+#s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+backspace = ['close-all-windows-but-current', 'mode main']
+f = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
+
+alt-shift-ctrl-cmd-down = ['join-with down', 'mode main']
+alt-shift-ctrl-cmd-left = ['join-with left', 'mode main']
+alt-shift-ctrl-cmd-right = ['join-with right', 'mode main']
+alt-shift-ctrl-cmd-up = ['join-with up', 'mode main']
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.chaoshidai.MouseClicker'
+run = "layout floating"
+
+[[on-window-detected]]
+if.window-title-regex-substring = '^Cliq$'
+run = "layout floating"
+
+[[on-window-detected]]
+if.window-title-regex-substring = '^Pomodoro$'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.netacad.PacketTracer8.2.2'
+if.window-title-regex-substring = 'Cisco Packet Tracer'
+run = "layout tiling"
+
+[[on-window-detected]]
+if.app-id = 'com.netacad.PacketTracer8.2.2'
+run = "layout floating"
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'Liquid Simulation'
+run = "layout floating"
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'Lunar Client'
+run = "layout floating"
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'Godot'
+run = "layout floating"
+
+[[on-window-detected]]
+if.window-title-regex-substring = '^Color Slurp$'
+run = "layout floating"
