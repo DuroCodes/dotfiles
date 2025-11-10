@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INDEX=0
-ALL_WORKSPACES=$(aerospace list-workspaces --all)
+ALL_WORKSPACES=$(hyprspace list-workspaces --all)
 
 for sid in $ALL_WORKSPACES; do
   sketchybar --add item space.$sid left \
@@ -16,7 +16,7 @@ for sid in $ALL_WORKSPACES; do
     label.padding_left=3 \
     label.padding_right=3 \
     label.font="sketchybar-app-font:Regular:16.0" \
-    click_script="aerospace workspace $sid" \
+    click_script="hyprspace workspace $sid" \
     script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 
   if [[ $sid != $(echo "$ALL_WORKSPACES" | tail -n1) ]]; then
