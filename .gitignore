@@ -10,6 +10,7 @@
 !starship.toml
 !barik/**
 !fish/**
+!wallpapers/**
 
 fish/fish_variables
 fish/completions/fnm.fish
