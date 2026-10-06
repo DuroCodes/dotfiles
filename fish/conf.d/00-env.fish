@@ -6,7 +6,6 @@
 set -gx BUN_INSTALL $HOME/.bun
 set -gx PNPM_HOME $HOME/Library/pnpm
 set -gx GOPATH $HOME/go
-set -gx PICO_SDK_PATH $HOME/Programming/pico/pico-sdk
 
 if not set -q PAGER
     set -gx PAGER less
@@ -36,7 +35,6 @@ if not set -q NO_COLOR
 end
 
 # Prepend user toolchains. Later calls sit further left on PATH.
-fish_add_path -g $HOME/.spicetify
 fish_add_path -g $GOPATH/bin
 fish_add_path -g $HOME/.local/bin
 fish_add_path -g $PNPM_HOME
@@ -44,7 +42,6 @@ fish_add_path -g $HOME/.pyenv/bin
 fish_add_path -g $HOME/.cargo/bin
 fish_add_path -g $BUN_INSTALL/bin
 fish_add_path -g /opt/homebrew/opt/libpq/bin
-fish_add_path -g "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 if command -q fnm
     fnm env --use-on-cd --shell fish | source
