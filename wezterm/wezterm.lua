@@ -9,9 +9,15 @@ config.color_scheme = "Horizon"
 config.window_background_opacity = 0.85
 config.macos_window_background_blur = 20
 
-config.font = wezterm.font("CaskaydiaCove Nerd Font")
 config.font_size = 14.0
-config.harfbuzz_features = { "calt=1", "clig=1", "liga=1" }
+config.font = wezterm.font_with_fallback({
+  {
+    family = "CaskaydiaCove Nerd Font",
+    harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
+  },
+  { family = "Apple Color Emoji", assume_emoji_presentation = true },
+})
+
 config.default_cursor_style = "SteadyBar"
 
 config.window_close_confirmation = 'NeverPrompt'
