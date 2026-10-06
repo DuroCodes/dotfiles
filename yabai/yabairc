@@ -14,12 +14,6 @@ yabai -m config right_padding 6
 
 # mouse settings
 yabai -m config mouse_follows_focus on
-@REM yabai -m config mouse_modifier alt
-
-@REM yabai -m config mouse_action1 move
-@REM yabai -m config mouse_action2 resize
-
-yabai -m mouse_drop_action swap
 
 # floating windows
 yabai -m rule --add app="^Finder$" manage=off sub-layer=below

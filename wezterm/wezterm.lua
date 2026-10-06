@@ -63,8 +63,6 @@ config.keys = {
   { mods = "CMD",       key = "q",          action = action.CloseCurrentPane({ confirm = false }) },
 }
 
--- local tabs_settings = require("modules.tabs")
--- tabs_settings.apply_to_config(config)
 config.enable_tab_bar = false
 
 return config

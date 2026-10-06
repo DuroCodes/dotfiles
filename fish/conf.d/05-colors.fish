@@ -16,12 +16,6 @@ set -g fish_color_selection white --bold --background=brblack
 set -g fish_color_operator normal
 set -g fish_color_escape cyan
 set -g fish_color_autosuggestion brblack
-set -g fish_color_cwd blue
-set -g fish_color_cwd_root red
-set -g fish_color_user brgreen
-set -g fish_color_host normal
-set -g fish_color_host_remote yellow
-set -g fish_color_status red
 set -g fish_color_cancel --reverse
 set -g fish_color_search_match bryellow --background=brblack
 set -g fish_color_history_current --bold
