@@ -4,10 +4,10 @@ these are my dotfiles for my macOS setup
 
 # info
 
-- tiling wm: [hyprspace](https://github.com/BarutSRB/HyprSpace)
-- status bar: [sketchybar](https://github.com/FelixKratz/SketchyBar)
+- tiling wm: [yabai](https://github.com/koekeishiya/yabai)
+- status bar: [barik](https://github.com/DuroCodes/barik) (my fork of [vinhocent/barik](https://github.com/vinhocent/barik))
 - terminal: [wezterm](https://github.com/wez/wezterm)
-- shell: [zsh](https://www.zsh.org/)
+- shell: [fish](https://fishshell.com/)
 - theme: [horizon](https://github.com/xynydev/horizon-theme)
 - font: [caskaydia cove nerd font](https://www.nerdfonts.com/font-downloads)
 

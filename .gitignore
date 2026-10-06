@@ -2,10 +2,7 @@
 
 !*/
 !.gitignore
-!aerospace/**
-!hyprspace/**
 !wezterm/**
-!sketchybar/**
 !image.png
 !/README.md
 
