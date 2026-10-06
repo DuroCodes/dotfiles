@@ -2,8 +2,16 @@
 
 !*/
 !.gitignore
-!wezterm/**
-!image.png
 !/README.md
+!image.png
+!wezterm/**
+!yabai/**
+!skhd/**
+!starship.toml
+!barik/**
+!fish/**
+
+fish/fish_variables
+fish/completions/fnm.fish
 
 .DS_Store

@@ -1,0 +1,61 @@
+# If you installed yabai or aerospace without using Homebrew,
+# manually set the path to the binary. For example:
+#
+# yabai.path = "/run/current-system/sw/bin/yabai"¢
+aerospace.path = "/opt/homebrew/bin/aerospace"
+
+theme = "system" # system, light, dark
+
+[widgets]
+displayed = [ # widgets on menu bar
+    "default.spaces",
+    "spacer",
+    # "default.nowplaying",
+    # "default.network",
+    "default.battery",
+    # "divider",
+    "default.volume",
+    # { "default.time" = { format = "E d hh:mm" } },
+    "default.time",
+    # +%m/%d %-I:%M %p -> this is for the sketchybar clock, this uses a slightly different format, so we would use something like:
+]
+
+[widgets.default.spaces]
+space.show-key = true        # show space number (or character, if you use AeroSpace)
+window.show-title = true
+window.title.max-length = 50
+
+[widgets.default.nowplaying.popup]
+view-variant = "horizontal"
+
+[widgets.default.battery]
+show-percentage = true
+warning-level = 30
+critical-level = 10
+
+[widgets.default.time]
+format = "MM/dd h:mm a     "
+
+calendar.show-events = false
+# calendar.allow-list = ["Home", "Personal"] # show only these calendars
+# calendar.deny-list = ["Work", "Boss"] # show all calendars except these
+
+[widgets.default.time.popup]
+view-variant = "box"
+
+
+
+### EXPERIMENTAL, WILL BE REPLACED BY STYLE API IN THE FUTURE
+[experimental.background] # settings for blurred background
+displayed = false          # display blurred background
+height = "default"        # available values: default (stretch to full screen), menu-bar (height like system menu bar), <float> (e.g., 40, 33.5)
+blur = 3                  # background type: from 1 to 6 for blur intensity, 7 for black color
+
+[experimental.foreground] # settings for menu bar
+height = 40.0        # available values: default (55.0), menu-bar (height like system menu bar), <float> (e.g., 40, 33.5)
+horizontal-padding = 8   # padding on the left and right corners
+spacing = 15              # spacing between widgets
+
+[experimental.foreground.widgets-background] # settings for widgets background
+displayed = false                            # wrap widgets in their own background
+blur = 3                                     # background type: from 1 to 6 for blur intensity

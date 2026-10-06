@@ -1,0 +1,57 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# bsp, stack, float
+yabai -m config layout bsp
+
+yabai -m config window_placement second_child
+
+yabai -m config window_gap 6
+yabai -m config top_padding 9
+yabai -m config bottom_padding 6
+yabai -m config left_padding 6
+yabai -m config right_padding 6
+
+# mouse settings
+yabai -m config mouse_follows_focus on
+@REM yabai -m config mouse_modifier alt
+
+@REM yabai -m config mouse_action1 move
+@REM yabai -m config mouse_action2 resize
+
+yabai -m mouse_drop_action swap
+
+# floating windows
+yabai -m rule --add app="^Finder$" manage=off sub-layer=below
+yabai -m rule --add app="^Mouse Clicker$" manage=off sub-layer=below
+yabai -m rule --add title="^Cliq$" manage=off sub-layer=below
+yabai -m rule --add title="^Pomodoro$" manage=off sub-layer=below
+yabai -m rule --add app="^Packet Tracer" title!="Cisco Packet Tracer" manage=off sub-layer=below
+yabai -m rule --add title="Liquid Simulation" manage=off sub-layer=below
+yabai -m rule --add title="Lunar Client" manage=off sub-layer=below
+yabai -m rule --add title="Godot" manage=off sub-layer=below
+yabai -m rule --add title="^Color Slurp$" manage=off sub-layer=below
+yabai -m rule --add app="^System Settings$" manage=off sub-layer=below
+yabai -m rule --add app="^Calculator$" manage=off sub-layer=below
+
+# app spaces
+yabai -m rule --add app="^Discord$" space=2
+yabai -m rule --add app="^Spotify$" space=3
+yabai -m rule --add app="^Arc$" space=4
+yabai -m rule --add app="^Obsidian$" space=4
+yabai -m rule --add app="^OBS$" space=5
+
+# manage Java applications (Minecraft, etc.)
+yabai -m rule --add app="^java$" manage=on
+
+# signal to manage Java windows when they're created (applies to existing windows too)
+yabai -m signal --add event=window_created action='
+  if [ "$(yabai -m query --windows --window $YABAI_WINDOW_ID | jq -r ".app")" = "java" ]; then
+    yabai -m window $YABAI_WINDOW_ID --manage on
+  fi
+'
+
+# apply rule to existing Java windows on config load
+yabai -m query --windows | jq -r '.[] | select(.app == "java") | .id' | while read wid; do
+  yabai -m window $wid --manage on 2>/dev/null || true
+done
