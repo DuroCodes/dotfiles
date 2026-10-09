@@ -27,6 +27,7 @@ yabai -m rule --add title="Godot" manage=off sub-layer=below
 yabai -m rule --add title="^Color Slurp$" manage=off sub-layer=below
 yabai -m rule --add app="^System Settings$" manage=off sub-layer=below
 yabai -m rule --add app="^Calculator$" manage=off sub-layer=below
+yabai -m rule --add app="^Android Emulator$" manage=off sub-layer=below
 
 # app spaces
 yabai -m rule --add app="^Discord$" space=2

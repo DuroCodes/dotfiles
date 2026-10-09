@@ -14,5 +14,5 @@ alias g git
 alias code cursor
 
 # ls via lsd
-alias ls lsd
-alias tree 'ls --tree -I node_modules'
+alias ls 'eza --icons=always'
+alias tree 'eza --tree --git-ignore --icons=always'
